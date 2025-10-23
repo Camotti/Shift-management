@@ -1,0 +1,42 @@
+﻿@model IEnumerable<ShiftManagement.Web.Models.Affiliate>
+
+@{
+    ViewData["Title"] = "Affiliate List";
+}
+
+<h2>Affiliate List</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New Affiliate</a>
+</p>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Last Name</th>
+            <th>Document</th>
+            <th>Birthdate</th>
+            <th>Active</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var affiliate in Model)
+        {
+            <tr>
+                <td>@affiliate.Id</td>
+                <td>@affiliate.Name</td>
+                <td>@affiliate.LastName</td>
+                <td>@affiliate.Document</td>
+                <td>@affiliate.Birthdate.ToString("d")</td> 
+                <td>@(affiliate.Active ? "Yes" : "No")</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@affiliate.Id" class="btn btn-warning btn-sm">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@affiliate.Id" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

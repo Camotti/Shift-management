@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ShiftManagement.Web.Data;
+using ShiftManagement.Web.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,8 +9,8 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(connectionString));
 
-builder.Services.AddControllersWithViews();
-
+builder.Services.AddControllersWithViews(); //
+builder.Services.AddScoped<AffiliateService>(); //usar servicio de afiliados 
 var app = builder.Build();
 
 if (!app.Environment.IsDevelopment())

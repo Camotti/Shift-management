@@ -1,0 +1,33 @@
+﻿@model ShiftManagement.Web.Models.Affiliate
+
+@{
+    ViewData["Title"] = "Delete Affiliate";
+}
+
+<h2>Delete Affiliate</h2>
+
+<h4>Are you sure you want to delete this affiliate?</h4>
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">Name</dt>
+        <dd class="col-sm-10">@Model.Name</dd>
+
+        <dt class="col-sm-2">Last Name</dt>
+        <dd class="col-sm-10">@Model.LastName</dd>
+
+        <dt class="col-sm-2">Document</dt>
+        <dd class="col-sm-10">@Model.Document</dd>
+
+        <dt class="col-sm-2">Birthdate</dt>
+        <dd class="col-sm-10">@Model.Birthdate.ToString("d")</dd>
+
+        <dt class="col-sm-2">Active</dt>
+        <dd class="col-sm-10">@Model.Active ? "Yes" : "No"</dd>
+    </dl>
+
+    <form asp-action="DeleteConfirmed" method="post">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
