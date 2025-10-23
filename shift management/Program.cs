@@ -1,3 +1,5 @@
+
+
 namespace shift_management
 {
     internal static class Program

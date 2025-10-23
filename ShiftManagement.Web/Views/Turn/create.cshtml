@@ -1,0 +1,32 @@
+﻿@model ShiftManagement.Web.Models.Turn
+
+@{
+    ViewData["Title"] = "Create turn";
+}
+
+<h2>Create a new turn</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label>Number</label>
+        <input asp-for="Number" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Type</label>
+        <input asp-for="Type" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Date and Hour</label>
+        <input asp-for="DateHour" type="datetime-local" class="form-control" />
+    </div>
+
+    <div class="form-group form-check">
+        <input asp-for="Attend" class="form-check-input" />
+        <label class="form-check-label">Atendido</label>
+    </div>
+
+    <button type="submit" class="btn btn-success mt-2">Save</button>
+    <a asp-action="Index" class="btn btn-secondary mt-2">Return</a>
+</form>

@@ -1,0 +1,24 @@
+﻿@model ShiftManagement.Web.Models.Turn
+
+@{
+    ViewData["Title"] = "Delete Turn";
+}
+
+<h2>Delete Turn</h2>
+
+<div class="alert alert-warning">
+    <strong>Are you sure you want to delete this turn?</strong>
+</div>
+
+<div>
+    <p><strong>Number:</strong> @Model.Number</p>
+    <p><strong>Type:</strong> @Model.Type</p>
+    <p><strong>Date and Hour:</strong> @Model.DateHour.ToString("g")</p>
+    <p><strong>Attended:</strong> @(Model.Attend ? "Yes" : "No")</p>
+</div>
+
+<form asp-action="DeleteConfirmed" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Confirm Delete</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

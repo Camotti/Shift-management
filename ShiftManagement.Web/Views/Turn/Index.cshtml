@@ -1,0 +1,45 @@
+﻿@model IEnumerable<ShiftManagement.Web.Models.Turn>
+
+@{
+    ViewData["Title"] = "Shift Lists";
+}
+
+<h2> Shift List </h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary"> Create a new turn</a>
+</p>
+
+<table class="table table-bordered table-striped">
+<thead>
+    <tr>
+        <th>ID</th>
+        <th>Number</th>
+        <th>Type</th>
+        <th>Date and Hour</th>
+        <th>Attended</th> 
+        <th>Actions</th>
+        
+    </tr>
+</thead>
+
+<tbody>
+    @foreach (var turn in Model)
+        {
+            <tr>
+                <td>@turn.Id</td>
+                <td>@turn.Number</td>
+                <td>@turn.Type</td>
+                <td>@turn.DateHour.ToString("g")</td>
+                <td>@(turn.Attend ? "yes" : "No")</td>
+                <td> <a asp-action="Edit" asp-route-id="@turn.Id" class="btn btn-warning btn-sm">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@turn.Id" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+                
+            </tr>
+        }
+</tbody>
+
+
+
+</table>
